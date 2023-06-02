@@ -1,0 +1,95 @@
+# This theme is marked as @internal. It is intended to evolve and change over
+# minor releases.
+# As the UI of Drupal improves between minor versions, the markup and assets in
+# the ios theme will change. The ios theme is not backwards compatible
+# If you wish to modify the output or assets of ios you can:
+# 1. Copy the whole of ios and rename it as your own theme. You will need to
+# manually manage your own updates if you want to stay up to date with ios's
+# bug fixes and feature support.
+#
+# 2. Sub-theme ios. This is only recommended if you want to make minor
+# tweaks and understand that ios could break your modifications as it
+# changes.
+name: ios
+type: theme
+base theme: false
+description: 'A clean, accessible, and flexible Drupal front-end theme.'
+alt text: 'Screenshot of ios, Drupal front-end theme.'
+package: Core
+version: VERSION
+core_version_requirement: ^9
+libraries:
+  - ios/global-styling
+regions:
+  header: Header
+  primary_menu: 'Primary menu'
+  secondary_menu: 'Secondary menu'
+  hero: 'Hero (full width)'
+  highlighted: Highlighted
+  breadcrumb: Breadcrumb
+  social: Social Bar
+  content_above: Content Above
+  content: Content
+  sidebar: 'Sidebar'
+  content_below: 'Content Below'
+  footer_top: 'Footer Top'
+  footer_bottom: 'Footer Bottom'
+libraries-override:
+  system/admin:
+    css:
+      theme:
+        css/system.admin.css: false
+  system/base:
+    css:
+      component:
+        css/components/ajax-progress.module.css: css/components/ajax-progress.module.css
+        css/components/autocomplete-loading.module.css: css/components/autocomplete-loading.module.css
+  core/drupal.checkbox: false
+  core/drupal.dropbutton:
+    css:
+      component:
+        misc/dropbutton/dropbutton.css: css/components/dropbutton.css
+  core/drupal.vertical-tabs:
+    css:
+      component:
+        misc/vertical-tabs.css: css/components/vertical-tabs.css
+  media/oembed.formatter: false
+  layout_builder/twocol_section: ios/layout_builder_twocol_section
+  layout_builder/threecol_section: ios/layout_builder_threecol_section
+  layout_builder/fourcol_section: ios/layout_builder_fourcol_section
+libraries-extend:
+  core/drupal.message:
+    - ios/drupal.message
+  core/drupal.collapse:
+    - ios/details
+  core/drupal.dialog:
+    - ios/drupal.dialog
+  core/drupal.dialog.off_canvas:
+    - ios/dialog.off_canvas
+  core/drupal.progress:
+    - ios/progress
+  layout_discovery/onecol:
+    - ios/layout_discovery_section
+  layout_discovery/twocol_bricks:
+    - ios/layout_discovery_section
+  layout_discovery/twocol:
+    - ios/layout_discovery_section
+  layout_discovery/threecol_25_50_25:
+    - ios/layout_discovery_section
+  layout_discovery/threecol_33_34_33:
+    - ios/layout_discovery_section
+  node/drupal.node.preview:
+    - ios/drupal.node.preview
+  core/ckeditor:
+    - ios/cke-dialog
+  content_moderation/content_moderation:
+    - ios/content_moderation
+ckeditor_stylesheets:
+  - css/base/fonts.css
+  - css/base/base.css
+  - css/components/embedded-media.css
+  - css/components/table.css
+  - css/components/text-content.css
+  - css/theme/ckeditor-frame.css
+
+ckeditor5-stylesheets: false
